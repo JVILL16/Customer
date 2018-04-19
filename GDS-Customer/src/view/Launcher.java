@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import view.Login;
 
 /**
  * @author Jheremi Villarreal --- add names ---
@@ -68,14 +69,14 @@ public class Launcher extends Application{
 		
 		final TextField email = new TextField();
 		email.setPromptText("Email Address");
-		email.setPrefColumnCount(20);
+		email.setPrefColumnCount(30);
 	    email.getText();
 		GridPane.setConstraints(email, 0, 15);
 		grid.getChildren().add(email);
 		
 		final TextField userName = new TextField();
 		userName.setPromptText("Username");
-		userName.setPrefColumnCount(20);
+		userName.setPrefColumnCount(10);
 	    userName.getText();
 		GridPane.setConstraints(userName, 0, 20);
 		grid.getChildren().add(userName);
@@ -83,7 +84,7 @@ public class Launcher extends Application{
 		//this is a specific class in java that allows for password protection
 		final PasswordField pb = new PasswordField();
 		pb.setPromptText("Password");
-		pb.setPrefColumnCount(20);
+		pb.setPrefColumnCount(8);
 	    pb.getText();
 		GridPane.setConstraints(pb, 0, 25);
 		grid.getChildren().add(pb);
@@ -95,12 +96,19 @@ public class Launcher extends Application{
 			@Override public void handle (ActionEvent e) {
 			}
 		});
-		
+		//p=8
+		//u=10
+		//name=20
+		//email=30
+		//to constrain the limit of characters look at this tutorial
+		//https://stackoverflow.com/questions/22714268/how-to-limit-the-amount-of-characters-a-javafx-textfield?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 		Button login = new Button("Have Login?");
 		GridPane.setConstraints(login, 0, 35);
 		grid.getChildren().add(login);
 		login.setOnAction(new EventHandler<ActionEvent>() {
 			@Override public void handle (ActionEvent e) {
+				 Login login1 = new Login();
+				 
 			}
 		});
 	}

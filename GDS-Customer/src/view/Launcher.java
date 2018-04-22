@@ -4,6 +4,8 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import controller.CustomerController;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Group;
@@ -49,11 +51,21 @@ public class Launcher extends Application{
 		GridPane.setConstraints(title, 0, 0);
 		grid.getChildren().add(title);
 		menuView.setRoot(grid);
-		//code might be moved to another file if i can figure that out
-		//this just sets prompts for the messages
-		
-		//note to self get rid of preselected text
+
 		final TextField name = new TextField();
+		int nameLimit = 20;
+		name.lengthProperty().addListener(new ChangeListener<Number>(){
+
+			@Override
+			public void changed(ObservableValue<? extends Number>observable, Number oldValue, Number newValue ) {
+				if (newValue.intValue() > oldValue.intValue()) {
+                    if (name.getText().length() >= nameLimit) {
+                        name.setText(name.getText().substring(0, nameLimit));
+                    }
+                }
+            }
+				
+			});
 		name.setPromptText("First Name");
 		name.setPrefColumnCount(20);
 	    name.getText();
@@ -61,6 +73,19 @@ public class Launcher extends Application{
 		grid.getChildren().add(name);
 		
 		final TextField lastName = new TextField();
+		int lastNameLimit = 20;
+		lastName.lengthProperty().addListener(new ChangeListener<Number>(){
+
+			@Override
+			public void changed(ObservableValue<? extends Number>observable, Number oldValue, Number newValue ) {
+				if (newValue.intValue() > oldValue.intValue()) {
+                    if (lastName.getText().length() >= lastNameLimit) {
+                        lastName.setText(lastName.getText().substring(0, lastNameLimit));
+                    }
+                }
+            }
+				
+			});
 		lastName.setPromptText("Last Name");
 		lastName.setPrefColumnCount(20);
 	    lastName.getText();
@@ -68,6 +93,19 @@ public class Launcher extends Application{
 		grid.getChildren().add(lastName);
 		
 		final TextField email = new TextField();
+		int emailLimit = 30;
+		email.lengthProperty().addListener(new ChangeListener<Number>(){
+
+			@Override
+			public void changed(ObservableValue<? extends Number>observable, Number oldValue, Number newValue ) {
+				if (newValue.intValue() > oldValue.intValue()) {
+                    if (email.getText().length() >= emailLimit) {
+                        email.setText(email.getText().substring(0, emailLimit));
+                    }
+                }
+            }
+				
+			});
 		email.setPromptText("Email Address");
 		email.setPrefColumnCount(30);
 	    email.getText();
@@ -75,6 +113,19 @@ public class Launcher extends Application{
 		grid.getChildren().add(email);
 		
 		final TextField userName = new TextField();
+		int userNameLimit = 10;
+		userName.lengthProperty().addListener(new ChangeListener<Number>(){
+
+			@Override
+			public void changed(ObservableValue<? extends Number>observable, Number oldValue, Number newValue ) {
+				if (newValue.intValue() > oldValue.intValue()) {
+                    if (userName.getText().length() >= userNameLimit) {
+                        userName.setText(userName.getText().substring(0, userNameLimit));
+                    }
+                }
+            }
+				
+			});
 		userName.setPromptText("Username");
 		userName.setPrefColumnCount(10);
 	    userName.getText();
@@ -83,34 +134,57 @@ public class Launcher extends Application{
 		
 		//this is a specific class in java that allows for password protection
 		final PasswordField pb = new PasswordField();
+		int passwordLimit = 8;
+		pb.lengthProperty().addListener(new ChangeListener<Number>(){
+
+			@Override
+			public void changed(ObservableValue<? extends Number>observable, Number oldValue, Number newValue ) {
+				if (newValue.intValue() > oldValue.intValue()) {
+                    if (pb.getText().length() >= passwordLimit) {
+                        pb.setText(pb.getText().substring(0, passwordLimit));
+                    }
+                }
+            }
+				
+			});
 		pb.setPromptText("Password");
 		pb.setPrefColumnCount(8);
 	    pb.getText();
 		GridPane.setConstraints(pb, 0, 25);
 		grid.getChildren().add(pb);
 		
+		
+		
 		Button createAccount = new Button("Create Account");
 		GridPane.setConstraints(createAccount, 0, 30);
 		grid.getChildren().add(createAccount);
-		createAccount.setOnAction(new EventHandler<ActionEvent>() {
-			@Override public void handle (ActionEvent e) {
-			}
-		});
+			createAccount.setOnAction(e-> {
+				Browse browse = new Browse();
+				try {
+					browse.start(primaryStage);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}			
+			});
 		//p=8
 		//u=10
 		//name=20
 		//email=30
-		//to constrain the limit of characters look at this tutorial
-		//https://stackoverflow.com/questions/22714268/how-to-limit-the-amount-of-characters-a-javafx-textfield?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+
 		Button login = new Button("Have Login?");
 		GridPane.setConstraints(login, 0, 35);
 		grid.getChildren().add(login);
-		login.setOnAction(new EventHandler<ActionEvent>() {
-			@Override public void handle (ActionEvent e) {
-				 Login login1 = new Login();
-				 
-			}
+		login.setOnAction(e-> {
+			Login login1 = new Login();
+			try {
+				login1.start(primaryStage);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}			
 		});
+
 	}
 	public static void main(String[] args) {
 		launch(args);

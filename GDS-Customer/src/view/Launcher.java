@@ -36,7 +36,7 @@ public class Launcher extends Application{
 		//loader.setController(controller);
 		//Parent rootPane = loader.load();
 		Group rootPane = new Group();
-		Scene menuView = new Scene(rootPane, 600, 500);
+		Scene menuView = new Scene(rootPane, 800, 800);
 		primaryStage.setScene(menuView);
 		primaryStage.setTitle("Grocery Delivery System");
 		primaryStage.show();
@@ -153,27 +153,73 @@ public class Launcher extends Application{
 		GridPane.setConstraints(pb, 0, 25);
 		grid.getChildren().add(pb);
 		
+		final PasswordField confirmPB = new PasswordField();
+
+		confirmPB.lengthProperty().addListener(new ChangeListener<Number>(){
+
+			@Override
+			public void changed(ObservableValue<? extends Number>observable, Number oldValue, Number newValue ) {
+				if (newValue.intValue() > oldValue.intValue()) {
+                    if (confirmPB.getText().length() >= passwordLimit) {
+                        confirmPB.setText(confirmPB.getText().substring(0, passwordLimit));
+                    }
+                }
+            }
+				
+			});
+		confirmPB.setPromptText("Confirm Password");
+		confirmPB.setPrefColumnCount(8);
+	    confirmPB.getText();
+		GridPane.setConstraints(confirmPB, 0, 30);
+		grid.getChildren().add(confirmPB);
 		
 		
 		Button createAccount = new Button("Create Account");
-		GridPane.setConstraints(createAccount, 0, 30);
+		GridPane.setConstraints(createAccount, 0, 35);
 		grid.getChildren().add(createAccount);
 			createAccount.setOnAction(e-> {
-				Browse browse = new Browse();
-				try {
-					browse.start(primaryStage);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}			
+				if(name.getText() == null || name.getText().trim().isEmpty() )
+				{
+					System.out.println("First Name field is empty");
+				}
+				else if(lastName.getText() == null || lastName.getText().trim().isEmpty())
+				{
+					System.out.println("Last Name field is empty");
+				}
+				else if(email.getText() == null || email.getText().trim().isEmpty())
+				{
+					System.out.println("Email field is empty");
+				}
+				else if(userName.getText() == null || userName.getText().trim().isEmpty())
+				{
+					System.out.println("Username field is empty");
+				}
+				else if(pb.getText() == null || pb.getText().trim().isEmpty())
+				{
+					System.out.println("Password field is empty");
+				}
+				else if(confirmPB.getText() == null || confirmPB.getText().trim().isEmpty())
+				{
+					System.out.println("Confirm field is empty");
+				}
+				else {
+					Browse browse = new Browse();
+					try {
+						browse.start(primaryStage);
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+				}		
+			}
 			});
 		//p=8
 		//u=10
 		//name=20
 		//email=30
-
+			
+			
 		Button login = new Button("Have Login?");
-		GridPane.setConstraints(login, 0, 35);
+		GridPane.setConstraints(login, 0, 40);
 		grid.getChildren().add(login);
 		login.setOnAction(e-> {
 			Login login1 = new Login();
@@ -184,7 +230,7 @@ public class Launcher extends Application{
 				e1.printStackTrace();
 			}			
 		});
-
+		
 	}
 	public static void main(String[] args) {
 		launch(args);

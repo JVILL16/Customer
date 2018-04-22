@@ -89,9 +89,43 @@ public class Login extends Application {
 		GridPane.setConstraints(login, 0, 30);
 		grid.getChildren().add(login);
 		login.setOnAction(e-> {
-			Browse browse = new Browse();
+			if(userName.getText() == null || userName.getText().trim().isEmpty())
+			{
+				System.out.println("Username field is empty");
+			}
+			else if(pb.getText() == null || pb.getText().trim().isEmpty())
+			{
+				System.out.println("Password field is empty");
+			}
+			else {
+				Browse browse = new Browse();
+				try {
+					browse.start(primaryStage);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}	
+			}
+		});
+		Button forgotUsername = new Button("Forgot Username");
+		GridPane.setConstraints(forgotUsername, 1, 30);
+		grid.getChildren().add(forgotUsername);
+		forgotUsername.setOnAction(e-> {
+			ForgotUser forgotU= new ForgotUser();
 			try {
-				browse.start(primaryStage);
+				forgotU.start(primaryStage);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}			
+		});
+		Button forgotPassword = new Button("Forgot Password");
+		GridPane.setConstraints(forgotPassword, 1, 40);
+		grid.getChildren().add(forgotPassword);
+		forgotPassword.setOnAction(e-> {
+			ForgotPass forgotP = new ForgotPass();
+			try {
+				forgotP.start(primaryStage);
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

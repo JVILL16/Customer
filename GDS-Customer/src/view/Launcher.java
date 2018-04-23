@@ -25,6 +25,7 @@ import javafx.stage.Stage;
  */
 public class Launcher extends Application{
 	
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
@@ -93,6 +94,7 @@ public class Launcher extends Application{
 		grid.getChildren().add(createAccount);
 		createAccount.setOnAction(new EventHandler<ActionEvent>() {
 			@Override public void handle (ActionEvent e) {
+
 			}
 		});
 		
@@ -101,6 +103,7 @@ public class Launcher extends Application{
 		grid.getChildren().add(login);
 		login.setOnAction(new EventHandler<ActionEvent>() {
 			@Override public void handle (ActionEvent e) {
+
 			}
 		});
 	}

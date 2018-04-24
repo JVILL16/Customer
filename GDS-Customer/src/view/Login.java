@@ -1,6 +1,9 @@
 package view;
 
+import java.sql.Connection;
+
 import controller.CustomerController;
+import database.ConnectionFactory;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -22,6 +25,8 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 //this class also needs to see if the password is correct
 public class Login extends Application {
+	
+	private Connection conn;
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -89,6 +94,7 @@ public class Login extends Application {
 		GridPane.setConstraints(login, 0, 30);
 		grid.getChildren().add(login);
 		login.setOnAction(e-> {
+			
 			if(userName.getText() == null || userName.getText().trim().isEmpty())
 			{
 				System.out.println("Username field is empty");
@@ -104,6 +110,7 @@ public class Login extends Application {
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+					System.out.println("WRONG PASSWORD");
 				}	
 			}
 		});
@@ -132,5 +139,11 @@ public class Login extends Application {
 			}			
 		});
 	}
-		
+	public Connection getConnection() {
+		return conn;
+	}
+
+	public void setConnection(Connection conn) {
+		this.conn = conn;
+	}
 }

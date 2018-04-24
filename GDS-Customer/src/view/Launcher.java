@@ -2,10 +2,17 @@ package view;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+
+import java.sql.Connection;
+
 import controller.CustomerController;
+import database.AppException;
+import database.ConnectionFactory;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Group;
@@ -27,6 +34,8 @@ import view.Login;
  *
  */
 public class Launcher extends Application{
+	
+	private Connection conn;
 	
 	
 	@Override
@@ -227,6 +236,12 @@ public class Launcher extends Application{
 			Login login1 = new Login();
 			try {
 				login1.start(primaryStage);
+				try {
+					login1.setConnection(conn);
+					System.out.println("connection");
+				}catch (AppException e1) {
+					e1.printStackTrace();
+				}
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -247,10 +262,21 @@ public class Launcher extends Application{
 	@Override
 	public void init() throws Exception {
 		super.init();
+		
+		try {
+			conn = ConnectionFactory.createConnection();
+		} catch(AppException e) {
+			Platform.exit();
+		}
 	}
+
+
 	@Override
 	public void stop() throws Exception {
+		// TODO Auto-generated method stub
 		super.stop();
+		
+		conn.close();
 	}
 
 }

@@ -45,6 +45,7 @@ public class Browse extends Application {
 		rootPane.getChildren().add(apple);
 		
 		Button item1 = new Button("AddItem");
+		
 		item1.relocate(0,300);
 		rootPane.getChildren().add(item1);
 		item1.setOnAction(e-> {

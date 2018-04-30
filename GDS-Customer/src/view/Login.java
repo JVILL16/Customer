@@ -68,7 +68,8 @@ public class Login extends Application {
 	    userName.getText();
 		GridPane.setConstraints(userName, 0, 20);
 		grid.getChildren().add(userName);
-		
+		String userId = userName.getText();
+
 		//this is a specific class in java that allows for password protection
 		final PasswordField pb = new PasswordField();
 		int passwordLimit = 8;
@@ -89,7 +90,8 @@ public class Login extends Application {
 	    pb.getText();
 		GridPane.setConstraints(pb, 0, 25);
 		grid.getChildren().add(pb);
-
+		String userPass = pb.getText();
+		
 		Button login = new Button("Login");
 		GridPane.setConstraints(login, 0, 30);
 		grid.getChildren().add(login);

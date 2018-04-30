@@ -212,10 +212,7 @@ public class Launcher extends Application{
 				}		
 			}
 			});
-		//p=8
-		//u=10
-		//name=20
-		//email=30
+
 			
 			
 		Button login = new Button("Have Login?");

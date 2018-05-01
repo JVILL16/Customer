@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="UserName" layoutX="170.0" layoutY="24.0" prefHeight="31.0" prefWidth="291.0" />
+      <PasswordField fx:id="PassWord" layoutX="170.0" layoutY="64.0" prefHeight="31.0" prefWidth="291.0" />
+      <Label layoutX="69.0" layoutY="29.0" prefHeight="21.0" prefWidth="72.0" text="Username" />
+      <Label layoutX="74.0" layoutY="69.0" text="Password" />
+      <Label layoutX="85.0" layoutY="106.0" text="Name" />
+      <Label layoutX="78.0" layoutY="142.0" text="Address" />
+      <Label layoutX="55.0" layoutY="221.0" text="Phone Number" />
+      <Label layoutX="87.0" layoutY="179.0" text="Email" />
+      <TextField fx:id="Name" layoutX="170.0" layoutY="101.0" prefHeight="31.0" prefWidth="291.0" />
+      <TextField fx:id="Address" layoutX="170.0" layoutY="137.0" prefHeight="31.0" prefWidth="291.0" />
+      <TextField fx:id="Email" layoutX="170.0" layoutY="174.0" prefHeight="31.0" prefWidth="291.0" />
+      <TextField fx:id="Phone" layoutX="170.0" layoutY="216.0" prefHeight="31.0" prefWidth="291.0" />
+      <Button layoutX="185.0" layoutY="290.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="48.0" prefWidth="82.0" text="Register" />
+      <Button fx:id="ExistLogin" layoutX="341.0" layoutY="290.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="101.0" text="Have Login?" />
+   </children>
+</AnchorPane>

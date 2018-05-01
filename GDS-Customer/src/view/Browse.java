@@ -19,7 +19,9 @@ public class Browse extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-	
+		
+		int i = 0;
+		
 		Pane rootPane = new Pane();
 		Scene browseView = new Scene(rootPane, 1000, 900);
 		primaryStage.setScene(browseView);
@@ -39,7 +41,7 @@ public class Browse extends Application {
 		rootPane.getChildren().add(scrollBar);
 		
 		Label costApp = new Label("Cost of Apples per LB $1.00");
-		costApp.setFont(new Font("Arial",20));
+		costApp.setFont(new Font("Arial",15));
 		costApp.relocate(0,270);
 		rootPane.getChildren().add(costApp);
 		
@@ -72,7 +74,11 @@ public class Browse extends Application {
 			
 		}	
 });
-	
+		Label costOnion = new Label("Cost of Onions per Unit $.60");
+		costOnion.setFont(new Font("Arial",15));
+		costOnion.relocate(0,532);
+		rootPane.getChildren().add(costOnion);
+		
 		ImageView onion = new ImageView(new Image("media/0000.jpeg"));
 		onion.relocate(0,350);
 		rootPane.getChildren().add(onion);
@@ -102,17 +108,11 @@ public class Browse extends Application {
 			
 		}	
 });
-		Button logout = new Button("Logout");
-		logout.relocate(810,0);
-		rootPane.getChildren().add(logout);
-		item1.setOnAction(e-> {
-		//want to ask if you want to add the item to your cart
-		try {
-			//newItem.start(primaryStage);
-		} catch (Exception e1) {
-			
-		}	
-});
+	
+		Label costGarlic = new Label("Cost of Garlic per Unit $.60");
+		costGarlic.setFont(new Font("Arial",15));
+		costGarlic.relocate(0,830);
+		rootPane.getChildren().add(costGarlic);
 		
 		ImageView garlic = new ImageView(new Image("media/1234.jpeg"));
 		garlic.relocate(0,600);
@@ -145,6 +145,11 @@ public class Browse extends Application {
 			
 		}	
 });
+		Label costBana = new Label("Cost of Banana per LB $2.00");
+		costBana.setFont(new Font("Arial",15));
+		costBana.relocate(600,250);
+		rootPane.getChildren().add(costBana);
+		
 		
 		ImageView bana = new ImageView(new Image("media/2222.jpeg"));
 		bana.relocate(600,50);
@@ -175,6 +180,10 @@ public class Browse extends Application {
 			
 		}	
 });
+		Label costGinger = new Label("Cost of Ginger per LB $3.00");
+		costGinger.setFont(new Font("Arial",15));
+		costGinger.relocate(600,575);
+		rootPane.getChildren().add(costGinger);
 		
 		ImageView ginger = new ImageView(new Image("media/2345.jpeg"));
 		ginger.relocate(600,350);
@@ -206,7 +215,12 @@ public class Browse extends Application {
 		}	
 });
 		
-		ImageView oranges = new ImageView(new Image("media/2345.jpeg"));
+		Label costOrange = new Label("Cost of Orange per LB $3.00");
+		costOrange.setFont(new Font("Arial",15));
+		costOrange.relocate(600,880);
+		rootPane.getChildren().add(costOrange);
+		
+		ImageView oranges = new ImageView(new Image("media/3333.jpeg"));
 		oranges.relocate(600,650);
 		rootPane.getChildren().add(oranges);
 		final TextField quantinty3333 = new TextField();
@@ -231,6 +245,30 @@ public class Browse extends Application {
 		AddItem newItem = new AddItem();
 		try {
 			newItem.start(primaryStage);
+		} catch (Exception e1) {
+			
+		}	
+});
+		
+		Button Cart = new Button("Cart:" + i);
+		Cart.relocate(750,0);
+		rootPane.getChildren().add(Cart);
+		Cart.setOnAction(e-> {
+		//want to ask if you want to add the item to your cart
+		try {
+		} catch (Exception e1) {
+			
+		}	
+});
+		
+		
+		Button logout = new Button("Logout");
+		logout.relocate(810,0);
+		rootPane.getChildren().add(logout);
+		item1.setOnAction(e-> {
+		//want to ask if you want to add the item to your cart
+		try {
+			//newItem.start(primaryStage);
 		} catch (Exception e1) {
 			
 		}	

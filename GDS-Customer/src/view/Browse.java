@@ -19,9 +19,10 @@ import javafx.stage.Stage;
 
 public class Browse extends Application {
 public static int cartNumber;
+public static double onionAmount;
 	
 	public void start(Stage primaryStage) throws Exception {
-		
+	
 		HashMap cartStuff = new HashMap();
 		
 		Pane rootPane = new Pane();
@@ -61,6 +62,7 @@ public static int cartNumber;
 		        }
 		    }
 		});
+		
 		quantinty1111.relocate(100, 300);
 		rootPane.getChildren().add(quantinty1111);
 		
@@ -105,8 +107,6 @@ public static int cartNumber;
 		
 		//want to ask if you want to add the item to your cart
 		try {
-			int c0000 = Integer.parseInt(quantinty0000.getText());
-			Browse.cartNumber = Browse.cartNumber + c0000;
 			double q0000 =  Double.parseDouble(quantinty0000.getText());
 			double onionAmount = q0000 * .60;
 		} catch (Exception e1) {

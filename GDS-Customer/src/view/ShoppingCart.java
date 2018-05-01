@@ -5,22 +5,23 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class ShoppingCart {
-
+	
+	
 	public void start(Stage primaryStage) {
-		Group rootPane = new Group();
-		Scene loginView = new Scene(rootPane, 600, 500);
-		primaryStage.setScene(loginView);
+		Pane rootPane = new Pane();
+		Scene browseView = new Scene(rootPane, 600, 600);
+		primaryStage.setScene(browseView);
 		primaryStage.setTitle("Grocery Delivery System");
 		primaryStage.show();
-		GridPane grid = new GridPane();
-		grid.setAlignment(Pos.CENTER);
-		grid.setPadding(new Insets(10, 10, 10, 10));
-		grid.setVgap(5);
-		grid.setHgap(5);
+
+		
 		
 		Button browse = new Button("Back");
 		browse.relocate(0,0);
@@ -35,8 +36,8 @@ public class ShoppingCart {
 			
 		}	
 });
-		Button checkOut = new Button("CheckOut");
-		checkOut.relocate(0,0);
+		Button checkOut = new Button("CheckOut?");
+		checkOut.relocate(250,300);
 		rootPane.getChildren().add(checkOut);
 		checkOut.setOnAction(e-> {
 			

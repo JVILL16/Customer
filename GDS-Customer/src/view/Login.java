@@ -106,7 +106,6 @@ public class Login extends Application {
 				System.out.println("Password field is empty");
 			}
 			else {
-				System.out.println(pb.getText());
 				Browse browse = new Browse();
 				try {
 					browse.start(primaryStage);

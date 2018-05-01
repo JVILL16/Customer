@@ -1,5 +1,7 @@
 package view;
 
+import java.util.HashMap;
+
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -16,11 +18,10 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class Browse extends Application {
-	
-	@Override
+	int cartNumber = 0;
 	public void start(Stage primaryStage) throws Exception {
 		
-		int i = 0;
+		HashMap cartStuff = new HashMap();
 		
 		Pane rootPane = new Pane();
 		Scene browseView = new Scene(rootPane, 1000, 900);
@@ -67,9 +68,8 @@ public class Browse extends Application {
 		rootPane.getChildren().add(item1);
 		item1.setOnAction(e-> {
 		//want to ask if you want to add the item to your cart
-		AddItem newItem = new AddItem();
 		try {
-			newItem.start(primaryStage);
+			System.out.println(quantinty1111.getText());
 		} catch (Exception e1) {
 			
 		}	
@@ -101,15 +101,18 @@ public class Browse extends Application {
 		rootPane.getChildren().add(item2);
 		item2.setOnAction(e-> {
 		//want to ask if you want to add the item to your cart
-		AddItem newItem = new AddItem();
 		try {
-			newItem.start(primaryStage);
+			int c0000 = Integer.parseInt(quantinty0000.getText());
+			cartNumber = cartNumber + c0000;
+			double q0000 =  Double.parseDouble(quantinty0000.getText());
+			double onionAmount = q0000 * .60;
+			System.out.println(onionAmount);
 		} catch (Exception e1) {
 			
 		}	
 });
 	
-		Label costGarlic = new Label("Cost of Garlic per Unit $.60");
+		Label costGarlic = new Label("Cost of Garlic per Unit $.50");
 		costGarlic.setFont(new Font("Arial",15));
 		costGarlic.relocate(0,830);
 		rootPane.getChildren().add(costGarlic);
@@ -140,6 +143,9 @@ public class Browse extends Application {
 		//want to ask if you want to add the item to your cart
 		AddItem newItem = new AddItem();
 		try {
+			double q1234 =  Double.parseDouble(quantinty1234.getText());
+			double garlicAmount = q1234 * .50;
+			System.out.println(garlicAmount);
 			newItem.start(primaryStage);
 		} catch (Exception e1) {
 			
@@ -175,6 +181,9 @@ public class Browse extends Application {
 		//want to ask if you want to add the item to your cart
 		AddItem newItem = new AddItem();
 		try {
+			double q2222 =  Double.parseDouble(quantinty2222.getText());
+			double banaAmount = q2222 * 2.00;
+			System.out.println(banaAmount);
 			newItem.start(primaryStage);
 		} catch (Exception e1) {
 			
@@ -209,6 +218,9 @@ public class Browse extends Application {
 		//want to ask if you want to add the item to your cart
 		AddItem newItem = new AddItem();
 		try {
+			double q2345 =  Double.parseDouble(quantinty2345.getText());
+			double gingerAmount = q2345 * 3.00;
+			System.out.println(gingerAmount);
 			newItem.start(primaryStage);
 		} catch (Exception e1) {
 			
@@ -244,13 +256,16 @@ public class Browse extends Application {
 		//want to ask if you want to add the item to your cart
 		AddItem newItem = new AddItem();
 		try {
+			double q3333 =  Double.parseDouble(quantinty3333.getText());
+			double orangesAmount = q3333 * 3.00;
+			System.out.println(orangesAmount);
 			newItem.start(primaryStage);
 		} catch (Exception e1) {
 			
 		}	
 });
 		
-		Button Cart = new Button("Cart:" + i);
+		Button Cart = new Button("Cart:" + cartNumber);
 		Cart.relocate(750,0);
 		rootPane.getChildren().add(Cart);
 		Cart.setOnAction(e-> {

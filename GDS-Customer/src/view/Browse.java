@@ -18,7 +18,8 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class Browse extends Application {
-	int cartNumber = 0;
+public static int cartNumber;
+	
 	public void start(Stage primaryStage) throws Exception {
 		
 		HashMap cartStuff = new HashMap();
@@ -69,7 +70,7 @@ public class Browse extends Application {
 		item1.setOnAction(e-> {
 		//want to ask if you want to add the item to your cart
 		try {
-			System.out.println(quantinty1111.getText());
+		
 		} catch (Exception e1) {
 			
 		}	
@@ -83,7 +84,7 @@ public class Browse extends Application {
 		onion.relocate(0,350);
 		rootPane.getChildren().add(onion);
 		final TextField quantinty0000 = new TextField();
-		quantinty0000.setPromptText("Weight");
+		quantinty0000.setPromptText("Unit");
 		quantinty0000.textProperty().addListener(new ChangeListener<String>() {
 		    @Override
 		    public void changed(ObservableValue<? extends String> observable, String oldValue, 
@@ -99,14 +100,15 @@ public class Browse extends Application {
 		Button item2 = new Button("AddItem");
 		item2.relocate(0,550);
 		rootPane.getChildren().add(item2);
+		
 		item2.setOnAction(e-> {
+		
 		//want to ask if you want to add the item to your cart
 		try {
 			int c0000 = Integer.parseInt(quantinty0000.getText());
-			cartNumber = cartNumber + c0000;
+			Browse.cartNumber = Browse.cartNumber + c0000;
 			double q0000 =  Double.parseDouble(quantinty0000.getText());
 			double onionAmount = q0000 * .60;
-			System.out.println(onionAmount);
 		} catch (Exception e1) {
 			
 		}	
@@ -121,7 +123,7 @@ public class Browse extends Application {
 		garlic.relocate(0,600);
 		rootPane.getChildren().add(garlic);
 		final TextField quantinty1234 = new TextField();
-		quantinty1234.setPromptText("Weight");
+		quantinty1234.setPromptText("Unit");
 		quantinty1234.textProperty().addListener(new ChangeListener<String>() {
 		    @Override
 		    public void changed(ObservableValue<? extends String> observable, String oldValue, 
@@ -265,12 +267,14 @@ public class Browse extends Application {
 		}	
 });
 		
-		Button Cart = new Button("Cart:" + cartNumber);
+		Button Cart = new Button("cart");
 		Cart.relocate(750,0);
 		rootPane.getChildren().add(Cart);
 		Cart.setOnAction(e-> {
 		//want to ask if you want to add the item to your cart
 		try {
+			ShoppingCart shopping = new ShoppingCart();
+			shopping.start(primaryStage);
 		} catch (Exception e1) {
 			
 		}	

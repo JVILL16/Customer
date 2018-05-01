@@ -146,8 +146,94 @@ public class Browse extends Application {
 		}	
 });
 		
+		ImageView bana = new ImageView(new Image("media/2222.jpeg"));
+		bana.relocate(600,50);
+		rootPane.getChildren().add(bana);
+		final TextField quantinty2222 = new TextField();
+		quantinty2222.setPromptText("Weight");
+		quantinty2222.textProperty().addListener(new ChangeListener<String>() {
+		    @Override
+		    public void changed(ObservableValue<? extends String> observable, String oldValue, 
+		        String newValue) {
+		        if (!newValue.matches("\\d*")) {
+		            quantinty2222.setText(newValue.replaceAll("[^\\d]", ""));
+		        }
+		    }
+		});
+		quantinty2222.relocate(700, 300);
+		rootPane.getChildren().add(quantinty2222);
 		
+		Button item4 = new Button("AddItem");
+		item4.relocate(600,300);
+		rootPane.getChildren().add(item4);
+		item4.setOnAction(e-> {
+		//want to ask if you want to add the item to your cart
+		AddItem newItem = new AddItem();
+		try {
+			newItem.start(primaryStage);
+		} catch (Exception e1) {
+			
+		}	
+});
 		
+		ImageView ginger = new ImageView(new Image("media/2345.jpeg"));
+		ginger.relocate(600,350);
+		rootPane.getChildren().add(ginger);
+		final TextField quantinty2345 = new TextField();
+		quantinty2345.setPromptText("Weight");
+		quantinty2345.textProperty().addListener(new ChangeListener<String>() {
+		    @Override
+		    public void changed(ObservableValue<? extends String> observable, String oldValue, 
+		        String newValue) {
+		        if (!newValue.matches("\\d*")) {
+		            quantinty2345.setText(newValue.replaceAll("[^\\d]", ""));
+		        }
+		    }
+		});
+		quantinty2345.relocate(700, 600);
+		rootPane.getChildren().add(quantinty2345);
 		
+		Button item5 = new Button("AddItem");
+		item5.relocate(600,600);
+		rootPane.getChildren().add(item5);
+		item5.setOnAction(e-> {
+		//want to ask if you want to add the item to your cart
+		AddItem newItem = new AddItem();
+		try {
+			newItem.start(primaryStage);
+		} catch (Exception e1) {
+			
+		}	
+});
+		
+		ImageView oranges = new ImageView(new Image("media/2345.jpeg"));
+		oranges.relocate(600,650);
+		rootPane.getChildren().add(oranges);
+		final TextField quantinty3333 = new TextField();
+		quantinty3333.setPromptText("Weight");
+		quantinty3333.textProperty().addListener(new ChangeListener<String>() {
+		    @Override
+		    public void changed(ObservableValue<? extends String> observable, String oldValue, 
+		        String newValue) {
+		        if (!newValue.matches("\\d*")) {
+		            quantinty3333.setText(newValue.replaceAll("[^\\d]", ""));
+		        }
+		    }
+		});
+		quantinty3333.relocate(700, 850);
+		rootPane.getChildren().add(quantinty3333);
+		
+		Button item6 = new Button("AddItem");
+		item6.relocate(600,850);
+		rootPane.getChildren().add(item6);
+		item6.setOnAction(e-> {
+		//want to ask if you want to add the item to your cart
+		AddItem newItem = new AddItem();
+		try {
+			newItem.start(primaryStage);
+		} catch (Exception e1) {
+			
+		}	
+});
 	}
 }

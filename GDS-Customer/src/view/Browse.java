@@ -1,3 +1,10 @@
+/*
+	This code is for the GUI prototype
+	It gives a stakeholder an idea of what it should look like
+	And it gives the APO/Grunts an easier understanding on how the view should be
+	This does not use MVC but the APO code does and that is the other portion with
+	DataBase connections
+*/
 package view;
 
 import java.util.HashMap;
